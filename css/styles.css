@@ -1,0 +1,32 @@
+/* Dimensions de base d'une frame */
+.sprite {
+  width: 150px;       /* largeur d'une frame */
+  height: 150px;      /* hauteur d'une frame */
+  background: url("../img/eskimo.jpg") no-repeat;
+  margin: 20px;
+  display: inline-block;
+  border: 2px solid #333;
+}
+
+/* 1️⃣ Afficher une portion précise de l’image avec background-position */
+.sprite {
+  background-position: 0 0;  /* montre la première frame en haut à gauche */
+}
+
+/* 2️⃣ Changer la portion visible au survol (hover) */
+.sprite.hover:hover {
+  background-position: -150px 0; /* décale vers la 2e frame */
+}
+
+/* 3️⃣ Bonus : animer plusieurs frames (sprites animés) */
+@keyframes walk {
+  0%   { background-position:    0 0; }
+  25%  { background-position: -150px 0; }
+  50%  { background-position: -300px 0; }
+  75%  { background-position: -450px 0; }
+  100% { background-position:    0 0; }
+}
+
+.sprite.animation {
+  animation: walk 1s steps(4) infinite;
+}
