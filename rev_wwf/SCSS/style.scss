@@ -161,3 +161,14 @@ $tile-aspect-ratio: math.div(3, 4);
 // ---------------- POSITIONS SPRITE ----------------
 .p1  { background-position: 33.33% 100%; }
 .p2  { background-position: 0% 100%; }
+.p3  { background-position: 33.33% 50%; }
+.p4  { background-position: 0% 50%; }
+.p5  { background-position: 66.66% 50%; }
+.p6  { background-position: 0% 0%; }
+.p7  { background-position: 66.66% 100%; }
+.p8  { background-position: 100% 50%; }
+.p9  { background-position: 100% 0%; }
+.p10 { background-position: 100% 100%; }
+.p11 { background-position: 66.66% 0%; }
+.p12 { background-position: 33.33% 0%; }
+
