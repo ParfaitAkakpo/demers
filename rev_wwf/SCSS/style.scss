@@ -157,3 +157,7 @@ $tile-aspect-ratio: math.div(3, 4);
     }
   }
 }
+
+// ---------------- POSITIONS SPRITE ----------------
+.p1  { background-position: 33.33% 100%; }
+.p2  { background-position: 0% 100%; }
