@@ -106,3 +106,12 @@ $tile-aspect-ratio: math.div(3, 4);
     }
   }
 }
+
+// ---------------- CONTENT ----------------
+.content {
+  grid-area: content;
+  background: $color-content;
+  padding: $gap;
+  overflow-y: auto;
+  padding-bottom: $gap * 8;
+}
