@@ -196,4 +196,22 @@ $tile-aspect-ratio: math.div(3, 4);
   }
 }
 
+// ---------------- RESPONSIVE ----------------
+@media (max-width: 45rem) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "content"
+      "footer";
+  }
+   .menu { display: none; }
+
+  .tile { min-width: calc(50% - $gap);}
+
+  .label { display: none; }
+
+  .footer { padding:($gap * 0.75);}
+
+}
 
