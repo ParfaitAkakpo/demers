@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:color";
 
 // ---------------- VARIABLES ----------------
 $color-header: #0a5bb8;       // bleu professionnel
@@ -13,7 +14,6 @@ $color-label-bg: rgba(0, 0, 0, 0.5);
 $gap: 1rem;
 $tile-radius: 0.5rem;
 $tile-aspect-ratio: math.div(3, 4);
-
 
 // ---------------- MIXINS ----------------
 @mixin flex-center($direction: row, $justify: center, $align: center) {
@@ -50,8 +50,7 @@ $tile-aspect-ratio: math.div(3, 4);
 // ---------------- HEADER ----------------
 .header {
   grid-area: header;
-  background: $color-header;
-  padding: $gap * 1.5;
+  background: linear-gradient(90deg, $color-header, $color-footer);
   color: #ffffff;
   @include flex-center(row, center, center);
   font-weight: 700;
@@ -59,6 +58,29 @@ $tile-aspect-ratio: math.div(3, 4);
   top: 0;
   z-index: 10;
   text-align: center;
+  font-size: 1.8rem;
+  padding: $gap * 1.5;
+  @include transition(all, 0.4s, ease);
+
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      color.adjust($color-header, $lightness: 15%),
+      color.adjust($color-footer, $lightness: -10%)
+    );
+    transform: scale(1.03);
+    text-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
+  }
+
+  h2 {
+    margin: 0;
+    @include transition(all, 0.4s, ease);
+
+    &:hover {
+      letter-spacing: 0.125rem;
+      text-shadow: 0.188rem 0.188rem 0.75rem rgba(0, 0, 0, 0.7);
+    }
+  }
 }
 
 // ---------------- MENU ----------------
@@ -125,7 +147,7 @@ $tile-aspect-ratio: math.div(3, 4);
   justify-content: flex-start;
 
   .tile {
-    flex: 1 1 calc(25% - $gap);
+    flex: 1 1 calc(25% - #{$gap});
     aspect-ratio: $tile-aspect-ratio;
     background-image: url("../../img/sprite_grid.jpg");
     background-size: 400% 300%;
@@ -141,7 +163,7 @@ $tile-aspect-ratio: math.div(3, 4);
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
     }
 
     .label {
@@ -172,7 +194,6 @@ $tile-aspect-ratio: math.div(3, 4);
 .p11 { background-position: 66.66% 0%; }
 .p12 { background-position: 33.33% 0%; }
 
-
 // ---------------- FOOTER ----------------
 .footer {
   grid-area: footer;
@@ -197,7 +218,7 @@ $tile-aspect-ratio: math.div(3, 4);
 }
 
 // ---------------- RESPONSIVE ----------------
-@media (max-width:45rem) {
+@media (max-width: 45rem) {
   .grid {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -205,13 +226,12 @@ $tile-aspect-ratio: math.div(3, 4);
       "content"
       "footer";
   }
-   .menu { display: none; }
 
-  .tile { min-width: calc(50% - $gap);}
+  .menu { display: none; }
+
+  .tile { min-width: calc(50% - #{$gap}); }
 
   .label { display: none; }
 
-  .footer { padding:($gap * 0.75);}
-
+  .footer { padding: $gap * $tile-aspect-ratio; }
 }
-
