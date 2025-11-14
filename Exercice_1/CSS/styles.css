@@ -10,3 +10,17 @@ body {
     align-items: center;      
        
 }
+main {
+    text-align: left;      
+    font-family: Arial, sans-serif;
+}
+#grille-container table {
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin: 20px auto;      
+}
+#grille-container td {
+    border: 1px solid black;
+    padding: 4px 8px;
+    text-align: center;
+}
