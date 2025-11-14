@@ -52,19 +52,22 @@ fetch('http://localhost:8080/params_grille_nombres.php')
  
       td.textContent = valeur
  
-      if (valeur > seuil) {
+      if (valeur > seuil) 
+    {
         nbSupSeuil++
         td.style.backgroundColor = couleurFond
         td.style.color = couleurTexte
+    }
       tr.appendChild(td)
     }
  
     table.appendChild(tr)
   }
+
  
   container.innerHTML = ''
   container.appendChild(table)
  
   compteurElm.textContent = `Nombre de cellules ayant un nombre superieur à ${seuil} : ${nbSupSeuil}`
 }
-}
+
