@@ -1,0 +1,24 @@
+{
+  "name": "tp2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParfaitAkakpo/demers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ParfaitAkakpo/demers/issues"
+  },
+  "homepage": "https://github.com/ParfaitAkakpo/demers#readme",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  }
+}
