@@ -17,6 +17,12 @@ function initialiser () {
   main.appendChild(compteur)
 
   document.body.appendChild(main)
- 
+  
+fetch('http://localhost:8080/params_grille_nombres.php')
+    .then(response => response.json())
+    .then(data => {
+      const config = data.parametres_tableau
+      construireGrille(config)
+    }) 
 }
 
