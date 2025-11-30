@@ -2,12 +2,12 @@ body {
   background-color: #ffffff;
   padding: 40px 0;
 }
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
-
 
 .titre {
   background-color: #f8f9fa;
@@ -19,79 +19,59 @@ body {
   margin-bottom: 30px;
 }
 
-
 .titre h1 {
   margin: 0;
-  color: #000000;
+  color: #000;
   font-weight: bold;
-  font-size: 3 rem;
+  font-size: 3rem;
   text-align: center;
 }
 
+.zone {
+  display: flex;
+  gap: 20px;
+}
 
+/* BLOC DÉFINITION */
 .bloc-definition-forces {
   background-color: #ffffff;
   border: 2px solid #dee2e6;
   padding: 20px;
   min-height: 300px;
-  display: flex;
-  flex-direction: column;
+  width: 35%;
 }
 
-.bloc-definition-forces h3 {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-
-#definition-forces {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-#definition-forces h5 {
-  color: #000000;
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
-
-
-#definition-forces h5:first-child {
-  margin-top: 0;
-}
- 
 #definition-forces p {
   text-align: justify;
   line-height: 1.6;
 }
 
- 
+#definition-forces h5 {
+  margin: 15px 0 10px;
+}
+
 #definition-forces hr {
   margin: 15px 0;
-} 
+}
 
-
+/* FORMULAIRE */
 .bloc-formulaire {
   padding: 20px;
+  width: 60%;
 }
 
-#form-cd {
-  max-width: 100%;
+.mb-3 {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin-bottom: 20px;
 }
+
 .form-label {
+  width: 300px;
   font-weight: 500;
   color: #495057;
-  margin-bottom: 8px;
-}
-
-.mb-3 
-{
- display: flex;
-  margin-bottom: 15px;
+  margin: 0;
 }
 
 .btn-calculer {
@@ -111,4 +91,21 @@ body {
 .btn-calculer:hover {
   background-color: #e9ecef;
   border-color: #adb5bd;
+}
+
+/* RÉSULTAT */
+.bandeau-resultat {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#resultat p {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
 }
