@@ -22,6 +22,53 @@
          <div class="bloc-definition-forces">
           <h3>Définition forces</h3>
          </div>
+         
+          <form id="form-cd">
+          
+            <div class="mb-3">
+              <label for="flap" class="form-label">Position des volets</label>
+              <select class="form-select" id="flap">
+                <option value="">Sélectionner une valeur de flap</option>
+                <option value="0">0</option>
+                <option value="20">20</option>
+                <option value="45">45</option>
+              </select>
+              <div id="flap-error" class="invalid-feedback"></div>
+            </div>
+
+            
+            <div class="mb-3">
+              <label for="m" class="form-label">Nombre de Mach</label>
+              <input
+                type="number"
+                class="form-control"
+                id="m"
+                step="0.01"
+                min="0"
+                max="0.85"
+                placeholder="Valeur comprise entre 0 et 0.85">
+              <div id="m-error" class="invalid-feedback"></div>
+            </div>
+
+            
+            <div class="mb-3">
+              <label for="cl" class="form-label">Coefficient de portance</label>
+              <input
+                type="number"
+                class="form-control"
+                id="cl"
+                step="0.01"
+                min="0.2"
+                max="1.2"
+                placeholder="Valeur comprise entre 0.2 et 1.2">
+              <div id="cl-error" class="invalid-feedback"></div>
+            </div>
+
+          
+            <div class="text-center mt-4">
+              <button type="submit" class="btn-calculer">CALCULER</button>
+            </div>
+          </form>
 
 </body>
 </html>
