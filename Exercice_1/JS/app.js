@@ -1,6 +1,5 @@
 /* global _ */
 
-
 window.addEventListener('DOMContentLoaded', initialiser)
 
 function initialiser () {
@@ -27,9 +26,8 @@ function initialiser () {
       const config = data.parametres_tableau
       construireGrille(config)
     })
-    .catch(err => console.error(err))  
+    .catch(err => console.error(err))
 }
-
 
 function construireGrille (config) {
   const nbLignes = config.nombre_lignes
