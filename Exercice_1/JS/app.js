@@ -1,3 +1,6 @@
+/* global _ */
+
+
 window.addEventListener('DOMContentLoaded', initialiser)
 
 function initialiser () {
@@ -18,17 +21,17 @@ function initialiser () {
 
   document.body.appendChild(main)
 
-fetch('http://localhost:8080/params_grille_nombres.php')
+  fetch('http://localhost:8080/params_grille_nombres.php')
     .then(response => response.json())
     .then(data => {
       const config = data.parametres_tableau
       construireGrille(config)
-    
-      .catch(console.error)
-    }) 
+    })
+    .catch(err => console.error(err))  
 }
 
- function construireGrille (config) {
+
+function construireGrille (config) {
   const nbLignes = config.nombre_lignes
   const nbColonnes = config.nombre_colonnes
   const min = config.plage_nombres_aleatoires.nombre_minimum
@@ -36,38 +39,36 @@ fetch('http://localhost:8080/params_grille_nombres.php')
   const seuil = config.nombre_base
   const couleurFond = config.couleur_fond_cellule
   const couleurTexte = config.couleur_texte_cellule
- 
+
   const container = document.getElementById('grille-container')
   const compteurElm = document.getElementById('compteur')
- 
+
   const table = document.createElement('table')
   let nbSupSeuil = 0
- 
+
   for (let i = 0; i < nbLignes; i++) {
     const tr = document.createElement('tr')
- 
+
     for (let j = 0; j < nbColonnes; j++) {
       const td = document.createElement('td')
       const valeur = _.random(min, max)
- 
+
       td.textContent = valeur
- 
-      if (valeur > seuil) 
-    {
+
+      if (valeur > seuil) {
         nbSupSeuil++
         td.style.backgroundColor = couleurFond
         td.style.color = couleurTexte
-    }
+      }
+
       tr.appendChild(td)
     }
- 
+
     table.appendChild(tr)
   }
 
- 
   container.innerHTML = ''
   container.appendChild(table)
- 
+
   compteurElm.textContent = `Nombre de cellules ayant un nombre superieur à ${seuil} : ${nbSupSeuil}`
 }
-
