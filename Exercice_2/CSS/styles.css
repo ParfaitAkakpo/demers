@@ -7,3 +7,108 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+
+.titre {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+
+.titre h1 {
+  margin: 0;
+  color: #000000;
+  font-weight: bold;
+  font-size: 3 rem;
+  text-align: center;
+}
+
+
+.bloc-definition-forces {
+  background-color: #ffffff;
+  border: 2px solid #dee2e6;
+  padding: 20px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bloc-definition-forces h3 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+#definition-forces {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#definition-forces h5 {
+  color: #000000;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+
+#definition-forces h5:first-child {
+  margin-top: 0;
+}
+ 
+#definition-forces p {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+ 
+#definition-forces hr {
+  margin: 15px 0;
+} 
+
+
+.bloc-formulaire {
+  padding: 20px;
+}
+
+#form-cd {
+  max-width: 100%;
+}
+.form-label {
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 8px;
+}
+
+.mb-3 
+{
+ display: flex;
+  margin-bottom: 15px;
+}
+
+.btn-calculer {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #333;
+  font-weight: 600;
+  padding: 24px 50px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  width: 95%;
+  min-width: 350px;
+}
+
+.btn-calculer:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
