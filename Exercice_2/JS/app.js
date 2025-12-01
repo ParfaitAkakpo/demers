@@ -112,3 +112,54 @@ function validerChamps (flap, mach, cl, flapRaw, machRaw) {
   return ok
 }
 
+/* --------------------------------------------------------------
+   CDcomp = fonction du Mach
+-------------------------------------------------------------- */
+function calculCDcomp (mach, cl) {
+  if (mach >= 0 && mach <= 0.60) return 0
+
+  if (mach > 0.60 && mach <= 0.78) {
+    return (0.0508 - 0.1748 * mach + 0.1504 * mach * mach) * cl * cl
+  }
+
+  if (mach > 0.78 && mach <= 0.85) {
+    return (
+      -99.3434 +
+      380.888 * mach -
+      486.8 * mach * mach +
+      207.408 * mach * mach * mach
+    ) * cl * cl
+  }
+
+  return 0
+}
+
+/* --------------------------------------------------------------
+   CALCUL CD TOTAL
+-------------------------------------------------------------- */
+function calculerCD (flap, mach, cl) {
+  const p = paramsCD[flap]
+  const cdcomp = calculCDcomp(mach, cl)
+  return p.cdp + p.k * cl * cl + cdcomp
+}
+
+/* --------------------------------------------------------------
+   SOUMISSION FORMULAIRE
+-------------------------------------------------------------- */
+function handleSubmit (e) {
+  e.preventDefault()
+
+  const flapRaw = document.getElementById('flap').value
+  const flap = Number(flapRaw)
+
+  const machInput = document.getElementById('mach')
+  const machRaw = machInput.value
+  const mach = Number(machRaw)
+
+  const cl = Number(document.getElementById('cl').value)
+
+  if (!validerChamps(flap, mach, cl, flapRaw, machRaw)) return
+
+  const cd = calculerCD(flap, mach, cl)
+  document.getElementById('resultat-cd').textContent = `CD = ${cd.toFixed(4)}`
+}
