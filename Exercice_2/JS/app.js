@@ -31,3 +31,21 @@ function chargerDefinitionForces () {
         '<p class="text-danger">Erreur de chargement des définitions.</p>'
     })
 }
+
+/* --------------------------------------------------------------
+   CHARGEMENT CDp & K
+-------------------------------------------------------------- */
+function chargerParamsCD () {
+  fetch('http://localhost:8080/data_cdp_k.php')
+    .then(res => res.json())
+    .then(data => {
+      const cdp = data.data_cdp_k.cdp
+      const k = data.data_cdp_k.k
+
+      paramsCD[0] = { cdp: cdp[0], k: k[0] }
+      paramsCD[20] = { cdp: cdp[1], k: k[1] }
+      paramsCD[45] = { cdp: cdp[2], k: k[2] }
+    })
+    .catch(() => console.error('Erreur chargement CDp/K'))
+}
+
