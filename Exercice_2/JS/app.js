@@ -57,3 +57,58 @@ function initialiserFormulaire () {
   form.addEventListener('submit', handleSubmit)
 }
 
+/* --------------------------------------------------------------
+   VALIDATION
+-------------------------------------------------------------- */
+function validerChamps (flap, mach, cl, flapRaw, machRaw) {
+  let ok = true
+
+  const flapInput = document.getElementById('flap')
+  const machInput = document.getElementById('mach')
+  const clInput = document.getElementById('cl')
+
+  const flapError = document.getElementById('flap-error')
+  const machError = document.getElementById('mach-error')
+  const clError = document.getElementById('cl-error')
+
+  // reset
+  flapInput.classList.remove('is-invalid')
+  machInput.classList.remove('is-invalid')
+  clInput.classList.remove('is-invalid')
+
+  flapError.textContent = ''
+  machError.textContent = ''
+  clError.textContent = ''
+
+  // VALIDATION FLAP
+  if (flapRaw === '') {
+    flapInput.classList.add('is-invalid')
+    flapError.textContent = 'Veuillez choisir une valeur.'
+    ok = false
+  } else if (![0, 20, 45].includes(flap)) {
+    flapInput.classList.add('is-invalid')
+    flapError.textContent = 'Valeur de flap invalide.'
+    ok = false
+  }
+
+  // VALIDATION MACH (cas champ vide + hors bornes)
+  if (machRaw === '') {
+    machInput.classList.add('is-invalid')
+    machError.textContent = 'Veuillez entrer une valeur pour Mach.'
+    ok = false
+  } else if (isNaN(mach) || mach < 0 || mach > 0.85) {
+    machInput.classList.add('is-invalid')
+    machError.textContent = 'Mach doit être un nombre entre 0 et 0.85.'
+    ok = false
+  }
+
+  // VALIDATION CL
+  if (isNaN(cl) || cl < 0.2 || cl > 1.2) {
+    clInput.classList.add('is-invalid')
+    clError.textContent = 'Cl doit être un nombre entre 0.2 et 1.2.'
+    ok = false
+  }
+
+  return ok
+}
+
