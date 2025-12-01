@@ -49,3 +49,11 @@ function chargerParamsCD () {
     .catch(() => console.error('Erreur chargement CDp/K'))
 }
 
+/* --------------------------------------------------------------
+   INITIALISATION FORMULAIRE
+-------------------------------------------------------------- */
+function initialiserFormulaire () {
+  const form = document.getElementById('form-cd')
+  form.addEventListener('submit', handleSubmit)
+}
+
